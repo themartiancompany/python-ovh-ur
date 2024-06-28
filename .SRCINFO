@@ -1,6 +1,6 @@
 pkgbase = python-ovh
 	pkgdesc = Lightweight wrapper around OVH's APIs
-	pkgver = 1.1.0
+	pkgver = 1.1.2
 	pkgrel = 1
 	url = https://github.com/ovh/python-ovh
 	arch = any
@@ -11,7 +11,7 @@ pkgbase = python-ovh
 	makedepends = python-sphinx
 	makedepends = python-wheel
 	depends = python-requests
-	source = python-ovh-1.1.0.tar.gz::https://github.com/ovh/python-ovh/archive/v1.1.0.tar.gz
-	sha256sums = dae0e216bd62c37199f1398219056e399c28ed27f3aa5589b87eb38351ecdde9
+	source = python-ovh-1.1.2.tar.gz::https://github.com/ovh/python-ovh/archive/v1.1.2.tar.gz
+	sha256sums = b24a47bc37ffb14fee2d9525b4aa0b86eeb2aab24755fd6e74707c4e4d0b807a
 
 pkgname = python-ovh
