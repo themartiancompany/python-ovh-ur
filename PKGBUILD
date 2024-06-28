@@ -4,7 +4,7 @@
 
 pkgname=python-ovh
 pkgver=1.1.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=('any')
 url="https://github.com/ovh/python-ovh"
@@ -27,7 +27,5 @@ package() {
     python -m installer --destdir="${pkgdir}" dist/*.whl
 
     install -Dm644 docs/_build/man/python-ovh.1 "${pkgdir}/usr/share/man/man1/python-ovh.1"
-
     install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-
 }
