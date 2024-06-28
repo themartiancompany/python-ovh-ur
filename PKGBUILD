@@ -17,9 +17,6 @@ sha256sums=('b24a47bc37ffb14fee2d9525b4aa0b86eeb2aab24755fd6e74707c4e4d0b807a')
 build() {
     cd "${pkgname}-${pkgver}"
     python -m build --wheel --no-isolation
-
-    cd docs
-    make man
 }
 
 package() {
@@ -27,5 +24,12 @@ package() {
     python -m installer --destdir="${pkgdir}" dist/*.whl
 
     install -Dm644 docs/_build/man/python-ovh.1 "${pkgdir}/usr/share/man/man1/python-ovh.1"
+
     install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
+}
+
+post_install() {
+    cd "${pkgname}-${pkgver}/docs"
+    make man
 }
