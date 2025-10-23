@@ -73,12 +73,17 @@ depends=(
   "${_py}-requests"
 )
 makedepends=(
-  'python-build'
-  'python-installer'
-  'python-setuptools'
-  'python-sphinx'
-  'python-wheel'
+  "${_py}-build"
+  "${_py}-installer"
+  "${_py}-setuptools"
+  "${_py}-wheel"
 )
+if [[ "${_docs}" == "true" ]]; then
+  makedepends+=(
+    "make"
+    "${_py}-sphinx"
+  )
+fi
 _tarname="${pkgbase}-${pkgver}"
 _sum='b24a47bc37ffb14fee2d9525b4aa0b86eeb2aab24755fd6e74707c4e4d0b807a'
 _uri="${url}/archive/v${pkgver}.tar.gz"
@@ -111,20 +116,6 @@ build() {
   fi
 }
 
-package_python-ovh-docs() {
-  local \
-    _install_opts=()
-  _install_opts+=(
-    -Dm644
-  )
-  cd \
-    "${_tarname}"
-  install \
-    "${_install_opts[@]}" \
-    "docs/_build/man/${pkgbase}.1" \
-    "${pkgdir}/usr/share/man/man1/${pkgbase}.1"
-}
-
 package_python-ovh() {
   local \
     _installer_opts=() \
@@ -145,5 +136,24 @@ package_python-ovh() {
   install \
     "${_install_opts[@]}" \
     "LICENSE" \
-    "${pkgdir}/usr/share/licenses/${pkgbase}/LICENSE"
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
+
+package_python-ovh-docs() {
+  local \
+    _install_opts=()
+  _install_opts+=(
+    -Dm644
+  )
+  cd \
+    "${_tarname}"
+  install \
+    "${_install_opts[@]}" \
+    "docs/_build/man/${pkgbase}.1" \
+    "${pkgdir}/usr/share/man/man1/${pkgbase}.1"
+  install \
+    "${_install_opts[@]}" \
+    "LICENSE" \
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
+
