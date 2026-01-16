@@ -58,7 +58,7 @@ if [[ "${_docs}" == "true" ]]; then
   )
 fi
 pkgver=1.1.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
