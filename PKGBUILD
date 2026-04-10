@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: AGPL-3.0
+            "dogeos-gnu-python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
 
 #    ----------------------------------------------------------------------
 #    Copyright © 2024, 2025, 2026  Pellegrino Prevete
@@ -110,7 +111,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=1.1.2
 _commit="7532f33038f01777bf74a2ec57d6aa0666039542"
-pkgrel=15
+pkgrel=16
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
