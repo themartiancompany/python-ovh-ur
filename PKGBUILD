@@ -1,4 +1,4 @@
-#t SPDX-License-Identifier: AGPL-3.0
+# SPDX-License-Identifier: AGPL-3.0
 
 #    ----------------------------------------------------------------------
 #    Copyright © 2024, 2025, 2026  Pellegrino Prevete
@@ -104,7 +104,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=1.1.2
 _commit="7532f33038f01777bf74a2ec57d6aa0666039542"
-pkgrel=11
+pkgrel=12
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
@@ -201,7 +201,7 @@ elif [[ "${_evmfs}" == "false" ]]; then
         _uri="${_url}/archive/${_commit}.${_archive_format}"
         _sum="${_github_sum}"
       elif [[ "${_tag_name}" == "pkgver" ]]; then
-        _uri="${url}/releases/download/v${pkgver}/${_tarfile}"
+        _uri="${url}/releases/download/v${pkgver}/${pkgbase}-v${pkgver}.${_archive_format}"
         _sum="${_release_sum}"
       fi
     elif [[ "${_git_service}" == "gitlab" ]]; then
