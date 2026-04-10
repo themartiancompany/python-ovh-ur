@@ -1844,13 +1844,28 @@ jobs:
             # ${{ steps.create_release.outputs.upload_url }}
           asset_path:
             "python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+          asset_name:
+            "dogeos-gnu-python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+          asset_content_type:
+            application/gzip
+      - name:
+          Uploads Arch documentation package.
+        uses:
+          actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN:
+            ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url:
+            ${{ github.event.release.upload_url }}
+            # ${{ steps.create_release.outputs.upload_url }}
           asset_path:
             "python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_name:
-            "dogeos-gnu-python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
             "dogeos-gnu-python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_content_type:
             application/gzip
+
   msys2_release:
     name:
       Life and DogeOS Windows base packages (CI).
