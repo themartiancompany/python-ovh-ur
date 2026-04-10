@@ -104,7 +104,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=1.1.2
 _commit="7532f33038f01777bf74a2ec57d6aa0666039542"
-pkgrel=10
+pkgrel=11
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
@@ -202,7 +202,7 @@ elif [[ "${_evmfs}" == "false" ]]; then
         _sum="${_github_sum}"
       elif [[ "${_tag_name}" == "pkgver" ]]; then
         _uri="${url}/releases/download/v${pkgver}/${_tarfile}"
-        _sum="${_github_release_sum}"
+        _sum="${_release_sum}"
       fi
     elif [[ "${_git_service}" == "gitlab" ]]; then
       if [[ "${_tag_name}" == "commit" ]]; then
