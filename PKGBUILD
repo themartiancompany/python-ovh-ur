@@ -110,7 +110,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=1.1.2
 _commit="7532f33038f01777bf74a2ec57d6aa0666039542"
-pkgrel=14
+pkgrel=15
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
