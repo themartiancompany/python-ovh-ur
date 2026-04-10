@@ -34,6 +34,9 @@
 #   ebiadsu
 #     <ebiadsu@posteo.de>
 
+_os="$(
+  uname \
+    -o)"
 _evmfs_available="$(
   command \
     -v \
@@ -58,6 +61,9 @@ if [[ ! -v "_tag_name" ]]; then
 fi
 if [[ ! -v "_docs" ]]; then
   _docs="true"
+  if [[ "${_os}" == "Android" ]]; then
+    _docs="false"
+  fi
 fi
 _pkg=ovh
 if [[ ! -v "_ns" ]]; then
