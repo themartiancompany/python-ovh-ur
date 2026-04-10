@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0
-            "dogeos-gnu-python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
 
 #    ----------------------------------------------------------------------
 #    Copyright © 2024, 2025, 2026  Pellegrino Prevete
