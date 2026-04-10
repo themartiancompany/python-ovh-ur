@@ -96,7 +96,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=1.1.2
 _commit="7532f33038f01777bf74a2ec57d6aa0666039542"
-pkgrel=4
+pkgrel=5
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
@@ -134,10 +134,10 @@ if [[ "${_git}" == "true" ]]; then
   )
 fi
 _url="${url}"
-_tag="${_commit}"
-_tag_name="commit"
-#_tag="${pkgver}"
-# _tag_name="pkgver
+# _tag="${_commit}"
+# _tag_name="commit"
+_tag="${pkgver}"
+_tag_name="pkgver"
 _tarname="${pkgbase}-${_tag}"
 _tarfile="${_tarname}.${_archive_format}"
 _release_sum='b24a47bc37ffb14fee2d9525b4aa0b86eeb2aab24755fd6e74707c4e4d0b807a'
