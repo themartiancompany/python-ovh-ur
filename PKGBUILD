@@ -61,8 +61,11 @@ if [[ ! -v "_docs" ]]; then
 fi
 _pkg=ovh
 if [[ ! -v "_ns" ]]; then
-  _ns="themartiancompany"
-  # _ns="${_pkg}"
+  if [[ "${_tag_name}" == "commit" ]]; then
+    _ns="themartiancompany"
+  elif [[ "${_tag_name}" == "pkgver" ]]; then
+    _ns="${_pkg}"
+  fi
 fi
 if [[ ! -v "_archive_format" ]]; then
   if [[ "${_git}" == "true" ]]; then
@@ -101,7 +104,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=1.1.2
 _commit="7532f33038f01777bf74a2ec57d6aa0666039542"
-pkgrel=7
+pkgrel=8
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
@@ -197,6 +200,9 @@ elif [[ "${_evmfs}" == "false" ]]; then
       if [[ "${_tag_name}" == "commit" ]]; then
         _uri="${_url}/archive/${_commit}.${_archive_format}"
         _sum="${_github_sum}"
+      elif [[ "${_tag_name}" == "pkgver" ]]; then
+        _uri="${url}/releases/download/v${pkgver}/${_tarfile}"
+        _sum="${_github_release_sum}"
       fi
     elif [[ "${_git_service}" == "gitlab" ]]; then
       if [[ "${_tag_name}" == "commit" ]]; then
