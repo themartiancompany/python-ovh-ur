@@ -52,6 +52,10 @@ fi
 if [[ ! -v "_git_service" ]]; then
   _git_service="github"
 fi
+if [[ ! -v "_tag_name" ]]; then
+  _tag_name="commit"
+  _tag_name="pkgver"
+fi
 if [[ ! -v "_docs" ]]; then
   _docs="true"
 fi
@@ -68,10 +72,11 @@ if [[ ! -v "_archive_format" ]]; then
       _archive_format="git"
     fi
   elif [[ "${_git}" == "false" ]]; then
-    if [[ "${_git_service}" == "github" ]]; then
-      _archive_format="zip"
-    elif [[ "${_git_service}" == "gitlab" ]]; then
-      _archive_format="tar.gz"
+    _archive_format="tar.gz"
+    if [[ "${_tag_name}" == "commit" ]]; then
+      if [[ "${_git_service}" == "github" ]]; then
+        _archive_format="zip"
+      fi
     fi
   fi
 fi
@@ -96,7 +101,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver=1.1.2
 _commit="7532f33038f01777bf74a2ec57d6aa0666039542"
-pkgrel=5
+pkgrel=6
 pkgdesc="Lightweight wrapper around OVH's APIs"
 arch=(
   'any'
@@ -135,7 +140,6 @@ if [[ "${_git}" == "true" ]]; then
 fi
 _url="${url}"
 # _tag="${_commit}"
-# _tag_name="commit"
 _tag="${pkgver}"
 _tag_name="pkgver"
 _tarname="${pkgbase}-${_tag}"
