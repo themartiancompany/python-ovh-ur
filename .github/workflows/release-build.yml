@@ -1844,8 +1844,11 @@ jobs:
             # ${{ steps.create_release.outputs.upload_url }}
           asset_path:
             "python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+          asset_path:
+            "python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_name:
             "dogeos-gnu-python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+            "dogeos-gnu-python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_content_type:
             application/gzip
   msys2_release:
