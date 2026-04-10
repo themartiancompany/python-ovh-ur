@@ -224,6 +224,15 @@ source+=(
 sha256sums+=(
   "${_sum}"
 )
+validpgpkeys=(
+  # Truocolo
+  #   <truocolo@aol.com>
+  '97E989E6CF1D2C7F7A41FF9F95684DBE23D6A3E9'
+  'DD6732B02E6C88E9E27E2E0D5FC6652B9D9A6C01'
+  # Pellegrino Prevete (dvorak)
+  #   <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
+  '12D8E3D7888F741E89F86EE0FEC8567A644F1D16'
+)
 
 build() {
   local \
