@@ -1039,7 +1039,7 @@ jobs:
         id:
           version
       - name:
-          Upload Termux package.
+          Upload Android package.
         uses:
           actions/upload-release-asset@v1
         env:
@@ -1053,6 +1053,23 @@ jobs:
             "python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_name:
             "dogeos-android-python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+          asset_content_type:
+            application/gzip
+      - name:
+          Uploads Android documentation package.
+        uses:
+          actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN:
+            ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url:
+            ${{ github.event.release.upload_url }}
+            # ${{ steps.create_release.outputs.upload_url }}
+          asset_path:
+            "python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+          asset_name:
+            "dogeos-windows-python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_content_type:
             application/gzip
   arch_release:
@@ -2398,6 +2415,23 @@ jobs:
             "python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_name:
             "dogeos-windows-python-ovh-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+          asset_content_type:
+            application/gzip
+      - name:
+          Uploads Windows documentation package.
+        uses:
+          actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN:
+            ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url:
+            ${{ github.event.release.upload_url }}
+            # ${{ steps.create_release.outputs.upload_url }}
+          asset_path:
+            "python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+          asset_name:
+            "dogeos-windows-python-ovh-docs-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_content_type:
             application/gzip
 
